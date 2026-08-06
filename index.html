@@ -3,473 +3,461 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Endre Hudy | Professor</title>
-  <meta name="description" content="Personal website of Endre Hudy, Professor at Caroline University." />
+  <meta name="description" content="Personal website for Professor Endre Hudy" />
+  <title>Professor Endre Hudy | AI, Business & Teaching</title>
   <style>
-    :root {
-      --bg: #f6f7fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --accent: #1d4ed8;
-      --accent-soft: #dbeafe;
-      --border: #e5e7eb;
-      --shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+    :root{
+      --bg:#0b1020;
+      --bg2:#101a33;
+      --card:#121b34cc;
+      --card2:#172446;
+      --text:#eef3ff;
+      --muted:#b5c3ea;
+      --accent:#7cf0c8;
+      --accent2:#86a8ff;
+      --line:rgba(255,255,255,.12);
+      --shadow:0 18px 50px rgba(0,0,0,.35);
+      --radius:24px;
     }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 24px;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-    }
-
-    body {
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(29, 78, 216, 0.12), transparent 30%),
-        radial-gradient(circle at top right, rgba(59, 130, 246, 0.10), transparent 28%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+        radial-gradient(circle at top left, rgba(124,240,200,.18), transparent 30%),
+        radial-gradient(circle at top right, rgba(134,168,255,.18), transparent 30%),
+        linear-gradient(180deg, #07101f 0%, #0b1020 50%, #090d18 100%);
+      min-height:100vh;
     }
-
-    .container {
-      width: min(1100px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 32px 0 48px;
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px, calc(100% - 32px)); margin:0 auto;}
+    .nav{
+      position:sticky; top:0; z-index:30;
+      backdrop-filter: blur(16px);
+      background: rgba(7,16,31,.65);
+      border-bottom:1px solid var(--line);
     }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 28px;
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
     }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--accent), #60a5fa);
-      color: white;
-      font-weight: 700;
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.3px}
+    .badge{
+      width:42px; height:42px; border-radius:14px;
+      display:grid; place-items:center;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#06101b; font-weight:900;
       box-shadow: var(--shadow);
     }
-
-    .brand-text strong {
-      display: block;
-      font-size: 1rem;
-      letter-spacing: 0.01em;
+    .nav-links{display:flex; gap:18px; flex-wrap:wrap; color:var(--muted); font-size:14px}
+    .nav-links a:hover{color:var(--text)}
+    .hero{
+      padding:70px 0 34px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:28px;
+      align-items:center;
     }
-
-    .brand-text span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .hero h1{
+      font-size: clamp(2.5rem, 5vw, 4.9rem);
+      line-height: .95;
+      margin:0 0 18px;
+      letter-spacing:-1.8px;
     }
-
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      margin-left: 18px;
-      font-weight: 500;
+    .lead{
+      font-size:1.08rem;
+      line-height:1.7;
+      color:var(--muted);
+      max-width:62ch;
+      margin:0 0 24px;
     }
-
-    nav a:hover { color: var(--accent); }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 24px;
-      align-items: stretch;
+    .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:18px}
+    .btn{
+      padding:13px 18px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:600;
+      transition:transform .18s ease, background .18s ease, border-color .18s ease;
     }
-
-    .panel {
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(229, 231, 235, 0.85);
+    .btn:hover{transform:translateY(-2px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.22)}
+    .btn.primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#06101b;
+      border:none;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: 30px;
+      padding:18px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-art{
+      width:100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(134,168,255,.15), rgba(124,240,200,.10));
+      border:1px solid rgba(255,255,255,.10);
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+    .info-row{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin: 18px 0 0;
+    }
+    .mini{
+      padding:14px 15px;
+      border-radius:18px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+    }
+    .mini strong{display:block; font-size:1.02rem; margin-bottom:6px}
+    .mini span{color:var(--muted); font-size:.94rem; line-height:1.5}
+    .section{padding:24px 0 6px}
+    .section h2{
+      font-size: clamp(1.5rem, 2.5vw, 2.3rem);
+      margin:0 0 14px;
+      letter-spacing:-.5px;
+    }
+    .section p.sub{
+      color:var(--muted);
+      margin:0 0 18px;
+      max-width:75ch;
+      line-height:1.7;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3{margin:0 0 8px; font-size:1.08rem}
+    .card p{margin:0; color:var(--muted); line-height:1.65}
+    .jokes{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap:18px;
+    }
+    .joke{
+      display:flex; gap:16px; align-items:flex-start;
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: 24px;
+      padding:18px;
+    }
+    .emoji{
+      width:54px; height:54px; flex:none;
+      border-radius:18px;
+      background: linear-gradient(135deg, rgba(124,240,200,.2), rgba(134,168,255,.2));
+      display:grid; place-items:center;
+      font-size:1.5rem;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .joke strong{display:block; margin-bottom:6px}
+    .joke span{color:var(--muted); line-height:1.65}
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:18px;
+    }
+    .art-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
       border-radius: 26px;
+      padding:14px;
       box-shadow: var(--shadow);
     }
-
-    .hero-main {
-      padding: 42px;
+    .art-card svg{width:100%; height:auto; display:block; border-radius:18px}
+    .caption{margin-top:12px; color:var(--muted); font-size:.95rem; line-height:1.55}
+    .footer{
+      margin: 34px 0 20px;
+      padding:22px 0 0;
+      color:var(--muted);
+      border-top:1px solid var(--line);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      font-size:.95rem;
     }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-weight: 600;
-      font-size: 0.92rem;
-      margin-bottom: 18px;
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      color:var(--text);
     }
-
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(2.6rem, 6vw, 4.8rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-
-    .subtitle {
-      margin: 0;
-      font-size: 1.18rem;
-      color: var(--muted);
-      max-width: 60ch;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 28px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 18px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-weight: 600;
-      border: 1px solid transparent;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-      cursor: pointer;
-    }
-
-    .button:hover { transform: translateY(-1px); }
-
-    .button.primary {
-      background: var(--accent);
-      color: white;
-      box-shadow: 0 10px 24px rgba(29, 78, 216, 0.25);
-    }
-
-    .button.secondary {
-      background: white;
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .hero-side {
-      padding: 18px;
-      display: grid;
-      gap: 14px;
-    }
-
-    .hero-side img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 20px;
-      display: block;
-    }
-
-    .info-card {
-      padding: 20px;
-      border-radius: 20px;
-      background: white;
-      border: 1px solid var(--border);
-    }
-
-    .info-card h2 {
-      margin: 0 0 6px;
-      font-size: 1rem;
-    }
-
-    .info-card p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .sections {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 22px;
-    }
-
-    .section-card {
-      padding: 24px;
-      border-radius: 22px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-      scroll-margin-top: 24px;
-      outline: none;
-    }
-
-    .section-card h3 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-    }
-
-    .section-card p, .section-card li { color: var(--muted); }
-
-    .section-card ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    .section-card.target-highlight,
-    .section-card:target {
-      border-color: rgba(29, 78, 216, 0.35);
-      box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12), 0 8px 24px rgba(15, 23, 42, 0.04);
-    }
-
-    .gallery {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .gallery figure {
-      margin: 0;
-      overflow: hidden;
-      border-radius: 22px;
-      background: white;
-      border: 1px solid var(--border);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-    }
-
-    .gallery img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.35s ease;
-    }
-
-    .gallery figure:hover img { transform: scale(1.04); }
-
-    .gallery figcaption {
-      padding: 14px 16px 16px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .contact-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-      padding: 14px 16px;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: #fafafa;
-    }
-
-    .contact-item strong {
-      display: block;
-      font-size: 0.95rem;
-      color: var(--text);
-    }
-
-    .contact-item span {
-      color: var(--muted);
-      font-size: 0.95rem;
-      text-align: right;
-    }
-
-    footer {
-      margin-top: 26px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 920px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav a {
-        margin-left: 0;
-        margin-right: 16px;
-      }
-
-      .hero, .sections, .gallery {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-main {
-        padding: 28px;
-      }
+    @media (max-width: 900px){
+      .hero, .grid, .jokes, .gallery, .info-row{grid-template-columns:1fr}
+      .nav-inner{flex-direction:column; align-items:flex-start}
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a class="brand" href="#home" aria-label="Endre Hudy home">
-        <div class="mark">EH</div>
-        <div class="brand-text">
-          <strong>Endre Hudy</strong>
-          <span>Professor</span>
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="badge">EH</div>
+        <div>
+          <div>Professor Endre Hudy</div>
+          <div style="font-size:.88rem;color:var(--muted);font-weight:500">AI • Business • Teaching</div>
         </div>
-      </a>
-      <nav aria-label="Primary navigation">
+      </div>
+      <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#research">Research</a>
+        <a href="#focus">Focus</a>
+        <a href="#jokes">Jokes</a>
+        <a href="#gallery">Images</a>
         <a href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <main id="home" class="hero">
-      <section class="panel hero-main">
-        <div class="eyebrow">Professor • Caroline University</div>
-        <h1>Endre Hudy</h1>
-        <p class="subtitle">
-          Welcome to my personal website. I am Professor Endre Hudy, teaching at Caroline University.
-          This space is a simple, professional home for my academic profile, research interests,
-          and contact information.
-        </p>
-
-        <div class="actions">
-          <a class="button primary" href="#contact">Get in touch</a>
-          <a class="button secondary" href="#about">Learn more</a>
-        </div>
-      </section>
-
-      <aside class="panel hero-side" aria-label="Profile summary">
-        <img
-          src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80"
-          alt="University campus with modern buildings"
-        />
-        <div class="info-card">
-          <h2>Role</h2>
-          <p>Professor</p>
-        </div>
-        <div class="info-card">
-          <h2>Institution</h2>
-          <p>Caroline University</p>
-        </div>
-        <div class="info-card">
-          <h2>Focus</h2>
-          <p>Teaching, research, and academic service</p>
-        </div>
-      </aside>
-    </main>
-
-    <section class="gallery" aria-label="Featured images">
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80"
-          alt="University library"
-        />
-        <figcaption>Academic spaces and library resources.</figcaption>
-      </figure>
-
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
-          alt="Research and technology"
-        />
-        <figcaption>Research, data, and technology.</figcaption>
-      </figure>
-
-      <figure>
-        <img
-          src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=80"
-          alt="Academic discussion and collaboration"
-        />
-        <figcaption>Discussion, collaboration, and mentoring.</figcaption>
-      </figure>
-    </section>
-
-    <section class="sections" aria-label="Website content">
-      <article id="about" class="section-card" tabindex="-1">
-        <h3>About</h3>
-        <p>
-          I am Professor Endre Hudy, teaching at Caroline University. My academic work is dedicated
-          to education, research, and mentoring students.
-        </p>
-      </article>
-
-      <article id="research" class="section-card" tabindex="-1">
-        <h3>Research</h3>
-        <ul>
-          <li>Research topic or specialty area</li>
-          <li>Selected publications or projects</li>
-          <li>Current collaborations</li>
-        </ul>
-      </article>
-
-      <article id="contact" class="section-card" tabindex="-1">
-        <h3>Contact</h3>
-        <p>
-          Add your email address, office location, or institutional profile here.
-        </p>
-        <div class="contact-grid">
-          <div class="contact-item">
-            <strong>Institution</strong>
-            <span>Caroline University</span>
-          </div>
-          <div class="contact-item">
-            <strong>Email</strong>
-            <span>Add your email address</span>
-          </div>
-          <div class="contact-item">
-            <strong>Office hours</strong>
-            <span>Add your schedule</span>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <footer>
-      © 2026 Endre Hudy. All rights reserved.
-    </footer>
+      </div>
+    </div>
   </div>
 
-  <script>
-    // Make section navigation feel more obvious.
-    document.querySelectorAll('a[href^="#"]').forEach((link) => {
-      link.addEventListener('click', (event) => {
-        const hash = link.getAttribute('href');
-        const target = document.querySelector(hash);
-        if (!target) return;
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="pill" style="margin-bottom:18px;">GitHub Pages ready · Single-file HTML</div>
+        <h1>Welcome to my corner of the web.</h1>
+        <p class="lead">
+          I build practical ideas at the intersection of AI, machine learning, business strategy, ethics, law, and labor markets.
+          This page is a simple personal homepage for GitHub: clean, fast, and easy to customize.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#jokes">See the jokes</a>
+          <a class="btn" href="#gallery">View the images</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+        <div class="info-row">
+          <div class="mini">
+            <strong>Teaching</strong>
+            <span>AI and machine learning for business, ethics, law, and industry analysis.</span>
+          </div>
+          <div class="mini">
+            <strong>Style</strong>
+            <span>Friendly, professional, and lightly humorous.</span>
+          </div>
+          <div class="mini">
+            <strong>Goal</strong>
+            <span>Help people use AI thoughtfully and effectively.</span>
+          </div>
+        </div>
+      </div>
 
-        event.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        target.focus({ preventScroll: true });
+      <aside class="hero-card">
+        <div class="hero-art" aria-label="Original AI-themed illustration">
+          <svg viewBox="0 0 600 600" role="img" aria-labelledby="heroTitle heroDesc">
+            <title id="heroTitle">AI-themed abstract illustration</title>
+            <desc id="heroDesc">A colorful abstract circuit brain with stars and floating nodes.</desc>
+            <defs>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#7cf0c8"/>
+                <stop offset="100%" stop-color="#86a8ff"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity=".9"/>
+                <stop offset="100%" stop-color="#ffffff" stop-opacity=".2"/>
+              </linearGradient>
+            </defs>
+            <rect width="600" height="600" rx="36" fill="url(#g2)" opacity=".08"/>
+            <circle cx="300" cy="275" r="150" fill="none" stroke="url(#g1)" stroke-width="26" stroke-linecap="round" stroke-dasharray="18 14"/>
+            <path d="M215 275c0-47 38-85 85-85s85 38 85 85-38 85-85 85-85-38-85-85Z" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.2)" stroke-width="2"/>
+            <circle cx="300" cy="275" r="54" fill="rgba(255,255,255,.12)" stroke="url(#g1)" stroke-width="4"/>
+            <path d="M300 137V88M300 462v50M162 275h-56M494 275h56M203 178l-34-34M397 178l34-34M203 372l-34 34M397 372l34 34" stroke="rgba(255,255,255,.55)" stroke-width="6" stroke-linecap="round"/>
+            <circle cx="300" cy="88" r="14" fill="#7cf0c8"/>
+            <circle cx="300" cy="512" r="14" fill="#86a8ff"/>
+            <circle cx="106" cy="275" r="14" fill="#86a8ff"/>
+            <circle cx="494" cy="275" r="14" fill="#7cf0c8"/>
+            <circle cx="169" cy="140" r="14" fill="#7cf0c8"/>
+            <circle cx="431" cy="140" r="14" fill="#86a8ff"/>
+            <circle cx="169" cy="410" r="14" fill="#86a8ff"/>
+            <circle cx="431" cy="410" r="14" fill="#7cf0c8"/>
+            <path d="M244 255h112M244 295h112" stroke="rgba(255,255,255,.55)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M255 228l-22-22M345 228l22-22M255 322l-22 22M345 322l22 22" stroke="rgba(255,255,255,.55)" stroke-width="6" stroke-linecap="round"/>
+            <g fill="#ffffff" opacity=".9">
+              <circle cx="120" cy="120" r="6"/>
+              <circle cx="500" cy="110" r="6"/>
+              <circle cx="520" cy="455" r="6"/>
+              <circle cx="80" cy="470" r="6"/>
+              <circle cx="300" cy="540" r="8"/>
+            </g>
+          </svg>
+        </div>
+      </aside>
+    </section>
 
-        target.classList.add('target-highlight');
-        window.setTimeout(() => target.classList.remove('target-highlight'), 1400);
-      });
-    });
-  </script>
+    <section class="section" id="about">
+      <h2>About this site</h2>
+      <p class="sub">
+        This homepage is designed to work well on GitHub Pages: no external libraries, no tracking, no build step.
+        You can edit the text, swap the links, and add a projects page later without changing the structure.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Professional focus</h3>
+          <p>AI adoption, business use cases, responsible decision-making, and the practical limits of machine learning.</p>
+        </div>
+        <div class="card">
+          <h3>Teaching angle</h3>
+          <p>Clear explanations, examples from current practice, and a business-first view of how AI affects work and organizations.</p>
+        </div>
+        <div class="card">
+          <h3>Personal touch</h3>
+          <p>A small amount of humor keeps the page approachable without making it look cluttered or informal.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="focus">
+      <h2>What I care about</h2>
+      <p class="sub">A compact set of themes that fit a personal academic / professional homepage.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>AI & Machine Learning</h3>
+          <p>How models work, where they fail, and how they can be used responsibly in business settings.</p>
+        </div>
+        <div class="card">
+          <h3>Ethics & Law</h3>
+          <p>Questions about fairness, accountability, privacy, and the legal frameworks that shape technology use.</p>
+        </div>
+        <div class="card">
+          <h3>Labor & Strategy</h3>
+          <p>How technology changes jobs, productivity, competition, and the long-term structure of markets.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="jokes">
+      <h2>Main page jokes</h2>
+      <p class="sub">A little humor for the homepage. The Chuck Norris joke is included, as requested.</p>
+      <div class="jokes">
+        <div class="joke">
+          <div class="emoji">🥋</div>
+          <div>
+            <strong>Chuck Norris joke</strong>
+            <span>Chuck Norris doesn’t train AI. AI trains itself to avoid disappointing Chuck Norris.</span>
+          </div>
+        </div>
+        <div class="joke">
+          <div class="emoji">🤖</div>
+          <div>
+            <strong>AI joke</strong>
+            <span>An AI walks into a bar and says, “I’d like a drink with the highest probability of being liked.”</span>
+          </div>
+        </div>
+        <div class="joke">
+          <div class="emoji">📚</div>
+          <div>
+            <strong>Professor joke</strong>
+            <span>I told my students to keep their prompts short. They replied with a 20-page literature review.</span>
+          </div>
+        </div>
+        <div class="joke">
+          <div class="emoji">⚙️</div>
+          <div>
+            <strong>Machine learning joke</strong>
+            <span>My model was doing great until it learned the true meaning of “overfitting” and took it personally.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <h2>Original non-copyrighted images</h2>
+      <p class="sub">
+        These are embedded SVG illustrations created for this file, so you can use the page without worrying about licensing.
+      </p>
+      <div class="gallery">
+        <div class="art-card">
+          <svg viewBox="0 0 500 340" role="img" aria-label="Original illustration of a laptop and code">
+            <rect width="500" height="340" rx="28" fill="#0d1630"/>
+            <rect x="75" y="55" width="350" height="180" rx="20" fill="#16264c" stroke="rgba(255,255,255,.12)"/>
+            <rect x="120" y="90" width="210" height="10" rx="5" fill="#7cf0c8" opacity=".9"/>
+            <rect x="120" y="120" width="155" height="10" rx="5" fill="#86a8ff" opacity=".9"/>
+            <rect x="120" y="150" width="180" height="10" rx="5" fill="#ffffff" opacity=".55"/>
+            <rect x="120" y="180" width="120" height="10" rx="5" fill="#7cf0c8" opacity=".75"/>
+            <rect x="165" y="245" width="170" height="18" rx="9" fill="#2f406a"/>
+            <rect x="100" y="263" width="300" height="22" rx="11" fill="#1a2b55"/>
+            <circle cx="383" cy="126" r="42" fill="rgba(124,240,200,.16)" stroke="#7cf0c8" stroke-width="3"/>
+            <path d="M370 126h26M383 113v26" stroke="#7cf0c8" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          <div class="caption">An original AI workspace illustration for a tech-forward homepage.</div>
+        </div>
+        <div class="art-card">
+          <svg viewBox="0 0 500 340" role="img" aria-label="Original illustration of a book and light bulb">
+            <rect width="500" height="340" rx="28" fill="#101b33"/>
+            <circle cx="255" cy="90" r="48" fill="rgba(134,168,255,.16)" stroke="#86a8ff" stroke-width="3"/>
+            <path d="M255 50v18M255 112v16M215 90h18M277 90h18M225 60l12 12M273 108l12 12M285 60l-12 12M237 108l-12 12" stroke="#86a8ff" stroke-width="5" stroke-linecap="round"/>
+            <path d="M170 145c0-20 16-36 36-36h88c20 0 36 16 36 36v102H170V145Z" fill="#18274b" stroke="rgba(255,255,255,.12)"/>
+            <path d="M170 147h160" stroke="rgba(255,255,255,.2)" stroke-width="3"/>
+            <path d="M250 148v98" stroke="rgba(255,255,255,.18)" stroke-width="3"/>
+            <path d="M194 175h40M194 198h56M194 221h34" stroke="#7cf0c8" stroke-width="6" stroke-linecap="round"/>
+            <path d="M286 175h36M286 198h52M286 221h26" stroke="#86a8ff" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          <div class="caption">A simple book-and-idea illustration for teaching, research, and writing.</div>
+        </div>
+        <div class="art-card">
+          <svg viewBox="0 0 500 340" role="img" aria-label="Original illustration of a city skyline and network lines">
+            <rect width="500" height="340" rx="28" fill="#0d162c"/>
+            <path d="M55 260h390" stroke="rgba(255,255,255,.16)" stroke-width="3"/>
+            <rect x="80" y="170" width="40" height="90" rx="6" fill="#1b2d54"/>
+            <rect x="135" y="130" width="55" height="130" rx="6" fill="#223965"/>
+            <rect x="205" y="100" width="58" height="160" rx="6" fill="#182848"/>
+            <rect x="278" y="150" width="44" height="110" rx="6" fill="#25406f"/>
+            <rect x="336" y="115" width="70" height="145" rx="6" fill="#20345c"/>
+            <circle cx="112" cy="110" r="10" fill="#7cf0c8"/>
+            <circle cx="172" cy="82" r="10" fill="#86a8ff"/>
+            <circle cx="234" cy="55" r="10" fill="#7cf0c8"/>
+            <circle cx="300" cy="94" r="10" fill="#86a8ff"/>
+            <circle cx="371" cy="68" r="10" fill="#7cf0c8"/>
+            <path d="M112 110L172 82L234 55L300 94L371 68" fill="none" stroke="rgba(124,240,200,.55)" stroke-width="3"/>
+            <path d="M112 110L172 82L234 55L300 94L371 68" stroke-dasharray="8 10" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/>
+          </svg>
+          <div class="caption">A network-and-skyline visual for the strategy, labor, and AI theme.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contact</h2>
+      <p class="sub">
+        Replace the placeholders below with your real links before publishing to GitHub Pages.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>GitHub</h3>
+          <p><a class="btn" href="#" onclick="return false;">github.com/your-handle</a></p>
+        </div>
+        <div class="card">
+          <h3>Email</h3>
+          <p><a class="btn" href="#" onclick="return false;">your.email@example.com</a></p>
+        </div>
+        <div class="card">
+          <h3>LinkedIn / CV</h3>
+          <p><a class="btn" href="#" onclick="return false;">Add your professional link</a></p>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <div>© 2026 Professor Endre Hudy</div>
+      <div>Built as a single HTML file for GitHub Pages.</div>
+    </div>
+  </main>
 </body>
 </html>
